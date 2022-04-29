@@ -6,7 +6,7 @@ COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENV URL_DATABASE "jdbc:postgresql://192.168.0.159:5432/school_db"
+ENV URL_DATABASE "jdbc:postgresql://localhost:5432/school_db"
 ENV RABBITMQ_HOST "localhost"
 ENV RABBITMQ_USERNAME "guest"
 ENV RABBITMQ_PASSWORD "guest"

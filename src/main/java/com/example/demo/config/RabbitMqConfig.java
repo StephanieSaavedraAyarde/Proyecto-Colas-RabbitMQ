@@ -19,8 +19,8 @@ public class RabbitMqConfig {
     public static final String EXCHANGEC = "Topic Exchange";
     public static final String ROUTING_KEY_A = "routing_key_A";
     public static final String ROUTING_KEY_C = "routing_key_Topic";
-    public static final String ROUTING_KEYTOPIC1 = "queue.teacher.*";
-    public static final String ROUTING_KEYTOPIC2 = "queue.estudiantes.*";
+    public static final String ROUTING_KEYTOPIC1 = "teacher";
+    public static final String ROUTING_KEYTOPIC2 = "estudiantes";
 
     // Direct Exchange
     @Bean
@@ -94,11 +94,11 @@ public class RabbitMqConfig {
     }
     @Bean
     Binding teacherBinding(Queue teacher,TopicExchange topicExchange  ) {
-        return BindingBuilder.bind(teacher).to(topicExchange).with("queue.teacher.*");
+        return BindingBuilder.bind(teacher).to(topicExchange).with("teacher");
    }
     @Bean
     Binding estudianteBinding(Queue estudiantes,TopicExchange topicExchange  ) {
-        return BindingBuilder.bind(estudiantes).to(topicExchange).with("queue.estudiantes.* uniforme .*");
+        return BindingBuilder.bind(estudiantes).to(topicExchange).with("estudiantes");
     }
 
     @Bean
