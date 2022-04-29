@@ -20,22 +20,22 @@ public class ProducerController {
         messageDto.setMessageId(UUID.randomUUID().toString());
         messageDto.setMessageDate(new Date());
         template.convertAndSend(RabbitMqConfig.EXCHANGEA, RabbitMqConfig.ROUTING_KEY_A, messageDto);
-        return "Mensaje enviado";
+        return "Mensaje Direct Exchange enviado";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/v1/api/producer")
+    @RequestMapping(method = RequestMethod.POST, value = "/v1/api/producer/fanout")
     public String sendMessageB(@RequestBody MessageDto messageDto) {
         messageDto.setMessageId(UUID.randomUUID().toString());
         messageDto.setMessageDate(new Date());
         template.convertAndSend(RabbitMqConfig.EXCHANGEB, "", messageDto);
-        return "Mensaje enviado";
+        return "Mensaje Fanour Exchange enviado";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/v1/api/producer")
+    @RequestMapping(method = RequestMethod.POST, value = "/v1/api/producer/topic")
     public String sendMessageC(@RequestBody MessageDto messageDto) {
         messageDto.setMessageId(UUID.randomUUID().toString());
         messageDto.setMessageDate(new Date());
         template.convertAndSend(RabbitMqConfig.EXCHANGEC, RabbitMqConfig.ROUTING_KEY_C, messageDto);
-        return "Mensaje enviado";
+        return "Mensaje Topic Exchange enviado";
     }
 }

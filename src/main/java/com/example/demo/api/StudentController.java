@@ -3,7 +3,6 @@ package com.example.demo.api;
 import com.example.demo.bl.StudentBl;
 import com.example.demo.dto.StudentDto;
 import com.example.demo.entity.Student;
-import com.example.demo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

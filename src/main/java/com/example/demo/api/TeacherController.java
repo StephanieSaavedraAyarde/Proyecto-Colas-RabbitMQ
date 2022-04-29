@@ -32,7 +32,6 @@ public class TeacherController {
         return new ResponseEntity<>(teacherList, HttpStatus.OK);
     }
 
-
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Teacher> getSubjectsById(@PathVariable Integer id) throws Exception {
         LOGGER.info("Invocando al servicio REST para obtener en profesor con id: {}", id);
